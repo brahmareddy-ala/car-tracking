@@ -5,14 +5,14 @@ const FabricCAServices = require('fabric-ca-client');
 const fs = require('fs');
 const path = require('path');
 
-const testNetworkRoot = path.resolve(require('os').homedir(),'go/src/github.com/hyperledger/fabric-samples/test-network');
+const testNetworkPath = path.resolve(require('os').homedir(),'go/src/github.com/hyperledger/fabric-samples/test-network');
 
 async function main() {
     try {
         const wallet = await Wallets.newFileSystemWallet('./wallet');
 
 		let connectionProfile = JSON.parse(fs.readFileSync(
-			path.join(testNetworkRoot, 
+			path.join(testNetworkPath, 
 				'organizations/peerOrganizations/org1.example.com/connection-org1.json'), 'utf8')
 		);
 

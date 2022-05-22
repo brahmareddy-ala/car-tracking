@@ -7,7 +7,7 @@ async function main(id, owner) {
         const carTrackingContract = await contractHelper.getContractInstance();        
 		const response = await carTrackingContract.submitTransaction('sellCar', id, owner);
 		if (`${response}` !== '') {
-            console.log(`Response from createCar: ${response}`);
+            console.log(`Response from sellCar: ${response}`);
         }
 		return response;
 

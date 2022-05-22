@@ -2,13 +2,13 @@
 
 const fs = require('fs');
 const { Wallets } = require('fabric-network');
-const testNetworkRoot = path.resolve(require('os').homedir(),'go/src/github.com/hyperledger/fabric-samples/test-network');
+const testNetworkPath = path.resolve(require('os').homedir(),'go/src/github.com/hyperledger/fabric-samples/test-network');
 
 async function main() {
 
     try {
         const wallet = await Wallets.newFileSystemWallet('./wallet');
-        const adminUserPath = path.join(testNetworkRoot, '/organizations/peerOrganizations/org2.example.com/users/Admin@org2.example.com');
+        const adminUserPath = path.join(testNetworkPath, '/organizations/peerOrganizations/org2.example.com/users/Admin@org2.example.com');
         const mspFolderPath = path.join(adminUserPath, '/msp');
 
         const certFile = path.join(mspFolderPath, '/signcerts/', fs.readdirSync(path.join(mspFolderPath, '/signcerts'))[0]);

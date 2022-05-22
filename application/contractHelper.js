@@ -6,7 +6,7 @@ const { Wallets, Gateway } = require('fabric-network');
 
 let gateway;
 
-const testNetworkRoot = path.resolve(require('os').homedir(),'go/src/github.com/hyperledger/fabric-samples/test-network');
+const testNetworkPath = path.resolve(require('os').homedir(),'go/src/github.com/hyperledger/fabric-samples/test-network');
 
 async function getContractInstance() {
 	try {
@@ -14,7 +14,7 @@ async function getContractInstance() {
 		const wallet = await Wallets.newFileSystemWallet('./wallet');
 
 		let connectionProfile = JSON.parse(fs.readFileSync(
-			path.join(testNetworkRoot, 
+			path.join(testNetworkPath, 
 				'organizations/peerOrganizations/org1.example.com/connection-org1.json'), 'utf8')
 		);
 		
